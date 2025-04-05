@@ -2,7 +2,7 @@
 # include <time.h>
 # include <stdlib.h>
 
-
+    
     int main()
 	{
     	
@@ -16,10 +16,15 @@
 		
 		for (int i = 0; i < l; i++){
 		
-		n[i] = (float)(rand()) * (17.0 + 4.0);
+		int cely = rand() % (1000) - 800;
+		int drob = rand() % 1000;
+		
+		n[i] = (float)cely + (drob / 1000.0f);
 		printf("%.2f ", n[i]);	
 		
 		}  
-			  	
+	  	
 	}
+	
+	
 	
