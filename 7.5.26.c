@@ -16,7 +16,7 @@
 		
 		for (int i = 0; i < l; i++){
 		
-		n[i] = rand() % 17 + 4;
+		n[i] = (float)(rand()) * (17.0 + 4.0);
 		printf("%.2f ", n[i]);	
 		
 		}  
