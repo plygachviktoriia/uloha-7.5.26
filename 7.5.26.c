@@ -2,27 +2,20 @@
 # include <time.h>
 # include <stdlib.h>
 
-    void vnutorny_rozsah(float *p, int l, float *mxlmn, float *mnlmx){
+    void vnutorny_rozsah(float *n, int l, float *mxlmn){
 	
-	float n[l];
-	
+    *mxlmn = n[0];
 	for (int i = 1; i < l - 1; i++){
 		
-		if (n[i - 1] > n[i] && n[i] < n[i + 1])
+		if (n[i - 1] > n[i] && n[i] < n[i + 1] && n[i] < *mxlmn)
 		
 		{
-			printf("\nlokal min: %.2f", n[i]);
+			 *mxlmn = n[i];
 		}
 		
-		float *mxlmn[1];
-		
-		if (n[i] < *mxlmn[1])
-		{
-		    *mxlmn[1] = n[i];
 		}
 	       
 	}	
-	}
 	
     int main()
 	{
@@ -47,7 +40,7 @@
 		
 		
 		}
-		
+		vnutorny_rozsah(n, l, &mxlmn);
 			printf("\nlokal min: %.2f", mxlmn);
 			
 			
