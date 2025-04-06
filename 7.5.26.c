@@ -2,20 +2,19 @@
 # include <time.h>
 # include <stdlib.h>
 
-    void vnutorny_rozsah(float *n, int l, float *mxlmn, float *mnlmx, int min = 0, int max = 0){
+    void vnutorny_rozsah(float *n, int l, float *mxlmn, float *mnlmx, int *min){
+    
+    *min = 0;
     
 	for (int i = 1; i < l - 1; i++){
 		
 		if (n[i - 1] > n[i] && n[i] < n[i + 1] )
 		{
-			
-			
-		}
+		mxlmn[*min] = n[i]; 
 		
-		if (n[i - 1] < n[i] && n[i] > n[i + 1])
-		{
-			
+        (*min)++;		
 		}
+	
 		
 		}
 	       
@@ -26,8 +25,9 @@
     	
     	int l = 17;
     	float n[l];
-    	float mxlmn;
-    	float mnlmx;
+    	float mxlmn[l];
+    	float mnlmx[l];
+    	int min = 0;
     	
     	printf("Zadaj rozmier massivu od 4 po 17\n");
     	scanf("\n%d", &l);
@@ -44,9 +44,13 @@
 		
 		
 		}
-		vnutorny_rozsah(n, l, &mxlmn, &mnlmx);
+		vnutorny_rozsah(n, l, &mxlmn, &mnlmx, &min);
 		
-			printf("\nlokal min: %.2f", mxlmn);
+			for (int i = 0; i < min; i++)
+			 {
+               printf("\nlokal min: %.2f ", mxlmn[i]);
+             }
+             
 			printf("\nlokal max: %.2f", mnlmx);
 			
 			
