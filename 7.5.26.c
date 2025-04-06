@@ -2,22 +2,19 @@
 # include <time.h>
 # include <stdlib.h>
 
-    void vnutorny_rozsah(float *n, int l, float *mxlmn, float *mnlmx){
-	
-    *mxlmn = n[0];
-    *mnlmx = n[0];
+    void vnutorny_rozsah(float *n, int l, float *mxlmn, float *mnlmx, int min = 0, int max = 0){
     
 	for (int i = 1; i < l - 1; i++){
 		
-		if (n[i - 1] > n[i] && n[i] < n[i + 1] && n[i] < *mxlmn)
-		
+		if (n[i - 1] > n[i] && n[i] < n[i + 1] )
 		{
-			 *mxlmn = n[i];
+			
+			
 		}
 		
-		if (n[i - 1] < n[i] && n[i] > n[i + 1] && n[i] > *mnlmx)
+		if (n[i - 1] < n[i] && n[i] > n[i + 1])
 		{
-			*mnlmx = n[i];
+			
 		}
 		
 		}
