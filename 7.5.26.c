@@ -2,23 +2,28 @@
 #include <time.h>
 #include <stdlib.h>
 
-    void vnutorny_rozsah(float *p, int l, float *mxlmn, float *mnlmx){
-    
-    *mxlmn = p[0];
-    *mnlmx = p[0];
-    
+    void vnutorny_rozsah(float *p, int l, float *mxlmn, float *mnlmx)
+	{
 	for (int i = 1; i < l - 1; i++)                          // zaciname analizu s 2 prvka masivu a konci predposlednym
 	{
-		if (p[i - 1] > p[i] && p[i] < p[i + 1] )
-		{	
-		*mxlmn = p[i];                                 // mxlmn masiv ktory ulozuje pocet prvkov lok min                                     
-		}
-		
-    	if (p[i - 1] < p[i] && p[i] > p[i + 1] )
-		{	
-		*mnlmx = p[i]; 		
-		}
-	 }       
+	  if (p[i - 1] > p[i] && p[i] < p[i + 1] )
+	  {
+		     if (p[i] > p[i+1])
+		     {
+		     	*mxlmn = p[i];
+		     	p[i]++;
+			 }
+	  }                                                                
+	 
+      if (p[i - 1] < p[i] && p[i] > p[i + 1] )
+      {
+	  
+	      if (p[i] <  p[i+1])
+		     {
+		     	*mnlmx = p[i];
+		     	*mnlmx++;
+			 }
+	  }       
 	}	
 	
     int main()
@@ -41,9 +46,9 @@
 		}
 		vnutorny_rozsah(n, l, &mxlmn, &mnlmx);
 	
-               printf("\nlokal min: %.2f ", mxlmn);
+               printf("\nnajvacsi lokal min: %.2f ", mxlmn);
                
-               printf("\nlokal max: %.2f ", mnlmx);
+               printf("\nnajmensi lokal max: %.2f ", mnlmx);
            	
 		return 0;  
 	}
