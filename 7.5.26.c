@@ -4,20 +4,29 @@
 
     void vnutorny_rozsah(float *p, int l, float *mxlmn, float *mnlmx)
 	{
-		*mxlmn = p[1];
-		*mnlmx = p[0];
+		*mxlmn = -600;
+		*mnlmx = 600;
 		
-	for (int i = 1; i < l - 1; i++)                          // zaciname analizu s 2 prvka masivu a konci predposlednym
-	{
+	 for (int i = 1; i < l - 1; i++)                          // zaciname analizu s 2 prvka masivu a konci predposlednym
+	 {
 	  if (p[i - 1] > p[i] && p[i] < p[i + 1] )
 	  {
 	  	if (*mxlmn < p[i])
 	  	{
 	  	  *mxlmn = p[i];	
 		}   
-	  }                                                                    
-	}
-}
+	  }
+	  
+	  if (p[i - 1] < p[i] && p[i] > p[i + 1] )
+	  {
+	  	if (*mnlmx > p[i])
+	  	{
+	  	  *mnlmx = p[i];	
+		}                                                                       
+	  }
+     }
+     
+    }
 	
     int main()
 	{
